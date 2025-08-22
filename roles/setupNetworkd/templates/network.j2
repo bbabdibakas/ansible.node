@@ -1,0 +1,13 @@
+[Match]
+{# Подставляем имя основного интерфейса #}
+Name={{ ansible_default_ipv4.interface }}
+
+[Network]
+{# Подставляем IP адрес основного интерфейса #}
+Address={{ ansible_default_ipv4.address }}/24
+{# Подставляем шлюз по умолчанию #}
+Gateway={{ ansible_default_ipv4.gateway }}
+
+# Локальный DNS сервер
+DNS={{ dns_server_ip_address }}
+Domains={{ domain }}

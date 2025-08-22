@@ -1,0 +1,22 @@
+---
+- name: Ensure resolved directory exists
+  file:
+    path: "{{ resolved_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Generate the disable multicast dns config file
+  template:
+    src: "{{ disable_mdns_file }}.j2"
+    dest: "{{ resolved_dir }}/{{ disable_mdns_file }}"
+    mode: "0644"
+  notify: Restart systemd-resolved
+
+# Перенаправление на Google DNS не требуется, если настроено перенаправление через локальный DNS
+#
+#- name: Generate the global dns config file
+#  template:
+#    src: "{{ global_dns_file }}.j2"
+#    dest: "{{ resolved_dir }}/{{ global_dns_file }}"
+#    mode: "0644"
+#  notify: Restart systemd-resolved

@@ -1,0 +1,18 @@
+---
+- name: Setup Node Server
+  gather_facts: true # Сбор данных о сервере
+  hosts: nodes
+  vars_files:
+    - ../vars/vars.yaml
+  tasks:
+    - name: Include setupDependencies role
+      include_role:
+        name: setupDependencies
+
+    - name: Include setupNetworkd role
+      include_role:
+        name: setupNetworkd
+
+    - name: Include setupResolved role
+      include_role:
+        name: setupResolved

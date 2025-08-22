@@ -1,0 +1,11 @@
+---
+- name: Ensure dependencies are installed
+  apt:
+    name:
+      - curl
+      - vim
+      - jq
+      - iptables
+    state: latest # Обновляет версию пакета если он уже установлен и доступна новая версия
+    update_cache: true # Обновление кэша перед установкой пакетов
+    cache_valid_time: 3600 # Не будет обновлять если недавно обновляли

@@ -1,0 +1,3 @@
+resolved_dir: "/etc/systemd/resolved.conf.d"
+disable_mdns_file: "disable-mdns.conf"
+global_dns_file: "global.conf"

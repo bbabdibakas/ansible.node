@@ -1,0 +1,13 @@
+---
+- name: Ensure network directory exists
+  file:
+    path: "{{ network_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Generate the networkd config file
+  template:
+    src: "{{ network_file }}.j2"
+    dest: "{{ network_dir }}/01-{{ ansible_default_ipv4.interface }}.network"
+    mode: "0644"
+  notify: Restart systemd-networkd
