@@ -1,10 +1,12 @@
 ---
 - name: Ensure dependencies are installed
+  become: yes
   apt:
     name:
       - curl
       - vim
       - jq
+      - iputils-ping
       - iptables
     state: latest # Обновляет версию пакета если он уже установлен и доступна новая версия
     update_cache: true # Обновление кэша перед установкой пакетов

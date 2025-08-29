@@ -1,4 +1,5 @@
 - name: Restart systemd-resolved
+  become: yes
   systemd:
     name: systemd-resolved
     state: restarted
