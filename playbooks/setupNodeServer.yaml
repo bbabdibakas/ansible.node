@@ -16,3 +16,7 @@
     - name: Include setupResolved role
       include_role:
         name: setupResolved
+
+    - name: Include disableSwap role
+      include_role:
+        name: disableSwap

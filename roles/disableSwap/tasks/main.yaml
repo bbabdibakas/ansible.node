@@ -1,0 +1,12 @@
+---
+- name: Disable swap temporarily
+  become: true
+  command: swapoff -a
+
+- name: Ensure swap is disabled in fstab (comment out)
+  become: true
+  replace:
+    path: /etc/fstab
+    regexp: '^(?!.*#)(.*\bswap\b)'
+    replace: '# \1'
+    backup: yes
