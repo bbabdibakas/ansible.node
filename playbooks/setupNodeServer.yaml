@@ -5,9 +5,9 @@
   vars_files:
     - ../vars/vars.yaml
   tasks:
-    - name: Include setupDependencies role
+    - name: Include disableSwap role
       include_role:
-        name: setupDependencies
+        name: disableSwap
 
     - name: Include setupNetworkd role
       include_role:
@@ -17,6 +17,6 @@
       include_role:
         name: setupResolved
 
-    - name: Include disableSwap role
+    - name: Include setupContainerd role
       include_role:
-        name: disableSwap
+        name: setupContainerd

@@ -1,0 +1,2 @@
+containerd_dir: "/etc/containerd"
+containerd_file: "config.toml"

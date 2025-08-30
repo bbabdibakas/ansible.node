@@ -1,0 +1,7 @@
+---
+- name: Restart containerd
+  become: yes
+  systemd:
+    name: containerd
+    state: restarted
+    enabled: true

@@ -1,0 +1,24 @@
+---
+- name: Install containerd
+  become: yes
+  apt:
+    name: containerd
+    state: latest # Обновляет версию пакета если он уже установлен и доступна новая версия
+    update_cache: true # Обновление кэша перед установкой пакетов
+    cache_valid_time: 3600 # Не будет обновлять если недавно обновляли
+
+- name: Ensure containerd directory exists
+  become: yes
+  file:
+    path: "{{ containerd_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Generate the containerd config file
+  become: yes
+  template:
+    src: "{{ containerd_file }}.j2"
+    dest: "{{ containerd_dir }}/{{ containerd_file }}"
+    mode: "0644"
+  notify: Restart containerd
+

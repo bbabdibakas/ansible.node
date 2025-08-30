@@ -13,7 +13,9 @@ ansible.node/
 ├── roles/                    # Ansible-роли
 │   ├── setupDependencies     # Установка базовых пакетов
 │   ├── setupNetworkd         # Настройка systemd-netword (Сеть, локальный DNS)
-│   └── setupResolved         # Настройка systemd-resolved
+│   ├── setupResolved         # Настройка systemd-resolved
+│   ├── disableSwap           # Отключение SWAP (временно и персистентно)
+│   └── setupContainerd       # Установка и настройка containerd и systemd cgroup
 ├── vars/                     # Переменные окружений
 └── README.md
 ```
