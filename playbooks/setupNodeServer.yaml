@@ -17,6 +17,10 @@
       include_role:
         name: setupResolved
 
+    - name: Include setupSysctl role
+      include_role:
+        name: setupSysctl
+
     - name: Include setupContainerd role
       include_role:
         name: setupContainerd

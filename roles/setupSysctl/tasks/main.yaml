@@ -1,0 +1,15 @@
+---
+- name: Ensure sysctl directory exists
+  become: yes
+  file:
+    path: "{{ sysctl_dir }}"
+    state: directory
+    mode: "0755"
+
+- name: Generate the sysctl config file
+  become: yes
+  template:
+    src: "{{ sysctl_file }}.j2"
+    dest: "{{ sysctl_dir }}/99-{{ sysctl_file }}"
+    mode: "0644"
+  notify: Apply sysctl settings

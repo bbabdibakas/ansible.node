@@ -1,0 +1,2 @@
+sysctl_dir: "/etc/sysctl.d"
+sysctl_file: "k8s.conf"
